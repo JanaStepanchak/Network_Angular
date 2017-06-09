@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>CV page</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body ng-app="myApp">
+
+		<div class="conteiner">
+			<div class="col-sm-12">
+<!--	<div ng-class="{ 'alert':flash, 'alert-success': flash.type === 'success' , 'alert-danger': false.type === 'error' }" ng-if = "flash" ng-bind = "flash.message"></div>-->
+				<ng-view></ng-view>
+				
+				
+			</div>
+		</div>
+
+	<!--Підключення-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	<!--  //     -->
+	<script src="app/app.js"></script>
+	<script src="app/config.js"></script>
+
+	<script src="app/controllers/homeCtr.js"></script>
+	<script src="app/controllers/loginCtrl.js"></script>
+	<script src="app/controllers/regesterCtrl.js"></script>
+	
+	<script src="app/servicers/UsersService.js"></script>
+
+</body>
+
+</html>

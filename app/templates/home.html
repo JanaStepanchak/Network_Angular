@@ -1,0 +1,167 @@
+
+<div class="conteiner">
+<div  id="FormInformation" ng-show="home.showFormInformation">
+ <form class="form-horizontal" role="form">
+ <div class="form-group">
+    <label class="col-2 control-label">Phone number</label>
+    <div class="col-10">
+ <input type="text" class="form-control" ng-model="home.changeUser.phoneNamber">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-2 control-label">Cantry</label>
+    <div class="col-10">
+      <input type="text" class="form-control" ng-model="home.changeUser.cantry">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-2 control-label">City</label>
+    <div class="col-10">
+      <input type="text" class="form-control" ng-model="home.changeUser.city">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-2 control-label">Skype</label>
+    <div class="col-10">
+      <input type="text" class="form-control" ng-model="home.changeUser.skype">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-2 control-label">GiltHub</label>
+    <div class="col-10">
+      <input type="text" class="form-control" ng-model="home.changeUser.giltHub">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-2 control-label">Description</label>
+    <div class="col-10">
+<input type="text" class="form-control" ng-model="home.changeUser.description">
+    </div>
+  </div>
+<!--  <hr>-->
+  <div class="form-group">
+    <div class="col-offset-2 col-10" >
+<button type="button" class="btn btn-primary" ng-click="home.SaveInformation()" > Save</button>
+		    </div>
+  </div>
+
+</form>
+</div>
+<br>
+<br>
+<div class="col-sm-offset-1 col-sm-10">
+<div class="input-group" id="nameHom" >
+<input type="text" class="form-control" ng-model="home.login">
+<a href="#/"><button class="btn btn-info" type="button" ng-click="home.logStor()">Log-out</button></a>
+<!--</span>-->
+</div>
+<br>
+<div class="row">
+<div class="col-xs-4">
+    <form>
+<img id="photoUser" ng-src="{{home.phurl}}" class="img-thumbnail">
+<!--</div>-->
+<label  class="btn btn-primary btn-file btn-block"  id="idChangePhoto"  accept="image/*">Change Photo
+    <input type="file" style="display: none;" id="myfile"></label>
+    <input type="submit" id="submitPhoto" style="display: none;">
+    </form>
+    
+    
+<!--
+   <form >
+ <img ng-src="{{mainpage.phurl}}" class="img-thumbnail">
+  <label class="btn btn-xs btn-primary btn-file btn-block"> Change Photo
+      <input type="file" style="display: none;" id="myfile"></label>
+      <input type="submit" id="photosubmit" style="display: none;">
+      </form>
+-->
+    
+
+		  <table class="table table-hover">
+			<tr>
+				<td>Name</td>
+				<td>Sname</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr ng-repeat="fri in home.currentUser.friends">
+				<td>{{fri.firstName}}</td>
+				<td>{{fri.lastName}}</td>
+				<td>
+					<input type="button" value="X" class="btn btn-danger" ng-click="home.removeFriends(fri)">
+				</td>
+			</tr>
+		</table>
+<h3>Friends:</h3> 
+<button class="btn  btn-primary "type="button" data-toggle="modal" data-target="#exampleModalLong" ng-click="home.Friends()">Add friend</button> 
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        
+      </div>
+      <div class="modal-body">
+<!--       <div ng-show="home.user.tele">{{home.user.tele}}</div>-->
+        
+		  <table class="table table-hover">
+			<tr>
+				<td>Name</td>
+				<td>Sname</td>
+				<td></td>
+
+			</tr>
+        <tr ng-repeat="friends in home.users | filter : home.noFriends">
+				<td>{{friends.firstName}}</td>
+				<td>{{friends.lastName}}</td>
+				<td><input type="submit" value="Change friend" ng-click="home.changeFriends(friends)"></td>
+			</tr>
+		</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-8">
+
+<form class="form-signin">
+<h3>{{home.currentUser.firstName}} {{home.currentUser.lastName}}</h3>
+
+<div>
+   <button class="btn btn-xs btn-primary addInformation" type="button" ng-click="home.addInformation()">Add information</button>
+  
+<div ng-show="home.currentUser.phoneNamber">Phone number:   {{home.currentUser.phoneNamber}}</div>
+<div ng-show="home.currentUser.city">Cantry: {{home.currentUser.city}}</div>
+<div ng-show="home.currentUser.cantry">City: {{home.currentUser.cantry}}</div>
+<div ng-show="home.currentUser.skype">Skype: {{home.currentUser.skype}}</div>
+<div ng-show="home.currentUser.giltHub">GiltHub: {{home.currentUser.giltHub}}</div>
+<div ng-show="home.currentUser.description">Description: {{home.currentUser.description}}</div>
+    </div>
+<br><br>
+<input type="text" class="form-control" placeholder="Theme" ng-model="home.textTema">
+<br>
+<textarea class="form-control" rows="2" placeholder="Message" ng-model="home.textPost"></textarea>
+
+<button class="btn btn-xs btn-primary" type="button" ng-click="home.enterMess()">Відправити</button>
+</form>
+<br>
+<div  ng-repeat="pos in home.posrs | filter: home.MessUsserFilter">
+  <br>
+   <div class="bg-warning">
+    <div>
+        <div>{{pos.tema}}</div>
+        <div>{{pos.data}}</div>
+    </div>
+    <hr>
+    <div>{{pos.post}}</div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
